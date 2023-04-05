@@ -9,19 +9,18 @@ import {
     TouchableOpacity,
     View,
   } from 'react-native';
-
+import Level from './level';
   const Pencapaian = () => {
     return (
       <View style={styles.container}>
         <Text style={styles.title}>Pencapaian</Text>
+        <Level/>
       </View>
     );
   };
   const styles = StyleSheet.create({
     container: {
       flex: 1,
-      alignItems: 'center',
-      justifyContent: 'center',
       backgroundColor: '#f1d67b',
     },
     title: {
