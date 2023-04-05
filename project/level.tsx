@@ -1,3 +1,4 @@
+import Icon from 'react-native-vector-icons/FontAwesome5';
 import React from 'react';
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 
@@ -12,6 +13,11 @@ export default function Level({ navigation }) {
         row.push(
           <TouchableOpacity style={styles.button} key={j} onPress={() => navigation.navigate('Level', { level: j })}>
             <Text style={styles.buttonText}>{j}</Text>
+            <View style={styles.stars}>
+              {[...Array(3)].map((_, index) => (
+                <Icon name="star" size={20} color={j <= (index + 1) * 5 ? "yellow" : "gray"} key={index} solid={j <= (index + 1) * 5} />
+              ))}
+            </View>
           </TouchableOpacity>
         );
       }
@@ -56,5 +62,11 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontWeight: 'bold',
     textAlign: 'center',
+  },
+  stars: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    width: '100%',
+    paddingHorizontal: 5,
   },
 });
