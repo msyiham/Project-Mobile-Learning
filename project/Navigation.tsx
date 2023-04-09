@@ -10,6 +10,7 @@ import Materi from './Materi';
 import Tabel from './Tabel';
 import Quiz from './Quiz';
 import Pencapaian from './Pencapaian';
+import LevelScreen from './LevelScreen';
 const Stack = createNativeStackNavigator();
 
 
@@ -40,6 +41,11 @@ const MenuNavigation = () => {
                 name="Pencapaian"
                 component={Pencapaian}
             />
+            <Stack.Screen
+                name="Level"
+                component={LevelScreen}
+            />
+
         </Stack.Navigator>
     )
 }
