@@ -90,7 +90,7 @@ const Menu = ({navigation}) => {
         <Text style={styles.buttonText}>TABEL</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("Quiz")}>
+      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("Level")}>
         <Text style={styles.buttonText}>QUIZ</Text>
       </TouchableOpacity>
 
