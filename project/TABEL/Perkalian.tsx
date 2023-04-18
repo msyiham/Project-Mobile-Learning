@@ -7,29 +7,39 @@ export default function TabelPerkalian() {
     const row = numbers.map(j => {
       const product = i * j;
       return (
-        <Text key={j} style={styles.cell}>
-          <Text style={styles.left}>{i}</Text> x{' '}
-          <Text style={styles.right}>{j}</Text> ={' '}
-          <Text style={styles.result}>{product}</Text>
-        </Text>
+        <View style={styles.kolom}>
+          <Text key={j} style={styles.cell}>
+            <Text style={styles.left}>{i}</Text> x{' '}
+            <Text style={styles.right}>{j}</Text> ={' '}
+            <Text style={styles.result}>{product}</Text>
+          </Text>
+        </View>
       );
     });
     return (
-    
       <View key={i} style={styles.row}>
         {row}
       </View>
     );
   });
 
-  return <View style={styles.container}>{table}</View>;
+  return <ScrollView>
+            <ScrollView horizontal={true} style={styles.container}>
+              <View>{table}</View>
+            </ScrollView>
+          </ScrollView>;
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    backgroundColor:'#FFC6FF',
+  },
+  kolom: {
+    width:125,
+    height:50,
+    backgroundColor:'#BDB2FF',
+    alignContent:'center',
   },
   row: {
     flexDirection: 'row',
@@ -40,10 +50,11 @@ const styles = StyleSheet.create({
   },
   cell: {
     flex: 1,
+    fontSize:15,
     textAlign: 'center',
     borderLeftColor: 'black',
     borderLeftWidth: 1,
-    color:'black'
+    color: 'black'
   },
   left: {
     marginRight: 5,

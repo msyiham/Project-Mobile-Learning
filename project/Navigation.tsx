@@ -8,12 +8,13 @@ import {
 import Home from './Home';
 import Materi from './Materi';
 import Tabel from './Tabel';
-import Quiz from './Quiz';
+import Menuperkalian from './TABEL/TabelPerkalianScreen';
 import Pencapaian from './Pencapaian';
 import TabelPerkalian from './TABEL/Perkalian';
 import LevelScreen from './QUIZ/LevelScreen';
 import QuizScreen from './QUIZ/QuizScreen';
 import ResultScreen from './QUIZ/ResultScreen';
+
 const Stack = createNativeStackNavigator();
 
 
@@ -56,10 +57,10 @@ const MenuNavigation = () => {
                 name="TabelPerkalian"
                 component={TabelPerkalian}
             />
-            {/* <Stack.Screen
-                name="ResultScreen"
-                component={ResultScreen}
-            /> */}
+            <Stack.Screen
+                name="Perkalian"
+                component={Menuperkalian}
+            />
 
         </Stack.Navigator>
     )

@@ -13,7 +13,7 @@ import {
   const Tabel = ({navigation}) => {
     return (
       <View style={styles.container}>
-          <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("TabelPerkalian")}>
+          <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("Perkalian")}>
             <Text style={styles.buttonText}>PERKALIAN</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("Pencapaian")}>
