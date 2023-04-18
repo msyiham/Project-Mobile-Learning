@@ -22,7 +22,7 @@ import {
       flex: 1,
       alignItems: 'center',
       justifyContent: 'center',
-      backgroundColor: '#f1d67b',
+      backgroundColor: '#FFC6FF',
     },
     title: {
       fontSize: 20,

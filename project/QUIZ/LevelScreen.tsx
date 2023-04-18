@@ -107,6 +107,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'center',
+    backgroundColor:'#FFC6FF',
     alignItems: 'center',
     padding: 10,
   },
@@ -116,14 +117,14 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   levelButton: {
-    backgroundColor: '#007AFF',
+    backgroundColor: '#BDB2FF',
     padding: 10,
     borderRadius: 5,
     width: '18%',
     margin: 5
   },
   levelButtonText: {
-    color: '#FFFFFF',
+    color: '#154198',
     fontSize: 14,
     fontWeight: 'bold',
     textAlign: 'center',   

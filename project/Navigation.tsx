@@ -10,7 +10,7 @@ import Materi from './Materi';
 import Tabel from './Tabel';
 import Quiz from './Quiz';
 import Pencapaian from './Pencapaian';
-// import LevelScreen from './LevelScreen';
+import TabelPerkalian from './TABEL/Perkalian';
 import LevelScreen from './QUIZ/LevelScreen';
 import QuizScreen from './QUIZ/QuizScreen';
 import ResultScreen from './QUIZ/ResultScreen';
@@ -36,18 +36,10 @@ const MenuNavigation = () => {
                 name="Tabel"
                 component={Tabel}
             />
-            {/* <Stack.Screen
-                name="Quiz"
-                component={Quiz}
-            /> */}
             <Stack.Screen
                 name="Pencapaian"
                 component={Pencapaian}
             />
-            {/* <Stack.Screen
-                name="Level"
-                component={LevelScreen}
-            /> */}
             <Stack.Screen
                 name="Level"
                 component={LevelScreen}
@@ -60,6 +52,14 @@ const MenuNavigation = () => {
                 name="Result"
                 component={ResultScreen}
             />
+            <Stack.Screen
+                name="TabelPerkalian"
+                component={TabelPerkalian}
+            />
+            {/* <Stack.Screen
+                name="ResultScreen"
+                component={ResultScreen}
+            /> */}
 
         </Stack.Navigator>
     )

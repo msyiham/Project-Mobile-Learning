@@ -41,7 +41,7 @@ const NumberButtons = () => {
     });
   
     if (row.length > 0) {
-      rows.push(<View key={numbers.length} style={{ flexDirection: 'row' }}>{row}</View>);
+      rows.push(<View key={numbers.length} style={{flexDirection: 'row'}}>{row}</View>);
     }
   
     return (
@@ -73,8 +73,7 @@ const NumberButtons = () => {
             <Text
               style={{
                 fontSize: 25,
-                textAlign: 'center',
-                
+                textAlign: 'center',  
               }}>DELETE</Text>
           </View>
         </TouchableOpacity>

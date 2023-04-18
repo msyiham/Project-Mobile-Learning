@@ -54,25 +54,27 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: '#FFC6FF',
   },
   title: {
     fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 20,
+    color:'#9BF6FF'
   },
   score: {
     fontSize: 48,
     fontWeight: 'bold',
     marginBottom: 20,
-    color: 'black'
+    color: '#154198'
   },
   playAgainButton: {
-    backgroundColor: '#007AFF',
+    backgroundColor: '#FFADAD',
     padding: 10,
     borderRadius: 5,
   },
   playAgainButtonText: {
-    color: '#FFFFFF',
+    color: 'black',
     fontSize: 18,
     fontWeight: 'bold',
   },

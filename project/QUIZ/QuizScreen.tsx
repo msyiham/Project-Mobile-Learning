@@ -20,7 +20,7 @@ const NumberPad = ({ onNumberPress, onDeletePress }) => {
         </TouchableOpacity>
       );
     } else {
-      return <NumberButton number={item} onPress={onNumberPress} />;
+      return <NumberButton number={item} onPress={onNumberPress}/>;
     }
   };
 
@@ -44,25 +44,25 @@ const QuizScreen = ({ navigation, route }) => {
     {
       number: 1,
       questions: [
-        { question: '2 x 1 = ?', answer: '2' },
-        { question: '2 x 2 = ?', answer: '4' },
-        { question: '2 x 3 = ?', answer: '6' },
+        { question: '2 x 1', answer: '2' },
+        { question: '2 x 2', answer: '4' },
+        { question: '2 x 3', answer: '6' },
       ],
     },
     {
       number: 2,
       questions: [
-        { question: '2 x 1 = ?', answer: '2' },
-        { question: '2 x 2 = ?', answer: '4' },
-        { question: '2 x 3 = ?', answer: '6' },
+        { question: '2 x 1', answer: '2' },
+        { question: '2 x 2', answer: '4' },
+        { question: '2 x 3', answer: '6' },
       ],
     },
     {
       number: 3,
       questions: [
-        { question: '2 x 1 = ?', answer: '2' },
-        { question: '2 x 2 = ?', answer: '4' },
-        { question: '2 x 3 = ?', answer: '6' },
+        { question: '2 x 1', answer: '2' },
+        { question: '2 x 2', answer: '4' },
+        { question: '2 x 3', answer: '6' },
       ],
     },
     // Data levels selanjutnya
@@ -127,18 +127,25 @@ const QuizScreen = ({ navigation, route }) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.question}>{questions[currentQuestionIndex].question}</Text>
-      <TextInput
-        style={styles.input}
-        onChangeText={handleAnswerChange}
-        value={answer}
-        placeholder="Jawaban"
-        keyboardType="numeric"
-      />
-      <NumberPad onNumberPress={handleNumberPress} onDeletePress={handleDeletePress}  />
-      <TouchableOpacity style={styles.buttonNext} onPress={handleNextQuestionPress}>
-        <Text style={styles.buttonText}>Next</Text>
-      </TouchableOpacity>
+      <View style={styles.questionBox}>
+        <Text style={styles.question}>{questions[currentQuestionIndex].question}</Text>
+      </View>
+      <View style={styles.answerInput}>
+        <TextInput
+          style={styles.input}
+          onChangeText={handleAnswerChange}
+          value={answer}
+          editable={false}
+          placeholder="Jawaban"
+          keyboardType="numeric"
+        />
+      </View>
+      <View style={{alignContent:'center', alignItems:'center'}}>
+        <NumberPad onNumberPress={handleNumberPress} onDeletePress={handleDeletePress}/>
+        <TouchableOpacity style={styles.buttonNext} onPress={handleNextQuestionPress}>
+          <Text style={styles.buttonText}>Next</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };
@@ -147,43 +154,28 @@ const QuizScreen = ({ navigation, route }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-  },
-  levelText: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginBottom: 20,
-  },
-  questionText: {
-    fontSize: 18,
-    marginBottom: 20,
-    color: 'black'
+    alignContent:'center',
+    backgroundColor:'#FFC6FF',
   },
   buttonText: {
-    fontSize: 18,
+    fontSize: 24,
     marginBottom: 20,
     color: 'black'
   },
   answerInput: {
-    borderWidth: 1,
-    borderColor: 'gray',
+    borderWidth: 3,
     borderRadius: 5,
-    width: '80%',
-    padding: 10,
-    marginBottom: 20,
-    color: 'black'
+    borderColor: 'gray',
+    backgroundColor:'#A0C4FF',
+    width: '100%',
+    marginBottom: 5,
+    color: 'black',
   },
   input: {
-    fontSize: 18,
+    fontSize: 22,
     marginBottom: 20,
-    color: 'black'
-  },
-  Kotakinput: {
-    fontSize: 18,
-    marginBottom: 20,
-    width: 200,
-    textAlign: 'center',
-    borderRadius: 10,
-    backgroundColor: 'gray'
+    color: 'black',
+    textAlign: 'center'
   },
   title: {
     fontSize: 18,
@@ -191,32 +183,39 @@ const styles = StyleSheet.create({
     color: 'black'
   },
   question: {
-    fontSize: 18,
-    marginBottom: 20,
-    color: 'black'
+    fontSize: 50,
+    marginBottom: 10,
+    color: 'black',
+    textAlign: 'center',
   },
-  answerInput: {
-    borderWidth: 1,
-    borderColor: 'gray',
-    borderRadius: 5,
-    width: '80%',
-    padding: 10,
-    marginBottom: 20,
-    color: 'black'
+  questionBox: {
+    backgroundColor:'#D3F7AD',
+    height:'30%',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '100%',
   },
   buttonNext: {
-    backgroundColor: 'blue',
+    backgroundColor: '#BDB2FF',
     padding: 10,
     borderRadius: 5,
-    width: 80,
+    width: '97%',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   numberButton:{
-    backgroundColor: '#1f92d4',
+    backgroundColor: '#FFADAD',
     padding: 16,
     borderRadius: 8,
     margin: 8,
-    height: 80,
-    width: 80,
+    height: 90,
+    alignContent: 'center',
+    alignItems: 'center',
+    width: 120,
+  },
+  numberButtonText:{
+    fontSize: 24,
+    color:'#154198',
   },
   deleteButton:{
     backgroundColor: 'red',
@@ -224,7 +223,12 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     margin: 8,
     height: 80,
-    width: 80,
+    width: 260,
+  },
+  deleteButtonText:{
+    fontSize: 24,
+    color:'#fff',
+    textAlign: 'center'
   },
   submitButtonText: {
     color: 'white',

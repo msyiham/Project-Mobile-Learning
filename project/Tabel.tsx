@@ -10,10 +10,15 @@ import {
     View,
   } from 'react-native';
 
-  const Tabel = () => {
+  const Tabel = ({navigation}) => {
     return (
       <View style={styles.container}>
-        <Text style={styles.title}>Tabel</Text>
+          <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("TabelPerkalian")}>
+            <Text style={styles.buttonText}>PERKALIAN</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("Pencapaian")}>
+            <Text style={styles.buttonText}>PEMBAGIAN</Text>
+          </TouchableOpacity>
       </View>
     );
   };
@@ -22,13 +27,20 @@ import {
       flex: 1,
       alignItems: 'center',
       justifyContent: 'center',
-      backgroundColor: '#f1d67b',
+      backgroundColor: '#FFC6FF',
     },
-    title: {
-      fontSize: 20,
-      marginBottom: 10,
-      textAlign: 'center',
+    button: {
+      backgroundColor: '#BDB2FF',
+      borderRadius: 30,
+      padding: 10,
+      width: 200,
+      marginBottom: 25,
+      marginTop: 5,
+    },
+    buttonText: {
+      fontSize: 18,
       color: '#154198',
+      textAlign: 'center',
       fontWeight: 'bold',
     },
   });
