@@ -10,11 +10,14 @@ import Materi from './Materi';
 import Tabel from './Tabel';
 import Menuperkalian from './TABEL/TabelPerkalianScreen';
 import Pencapaian from './Pencapaian';
-import TabelPerkalian from './TABEL/Perkalian';
-import LevelScreen from './QUIZ/LevelScreen';
-import QuizScreen from './QUIZ/QuizScreen';
-import ResultScreen from './QUIZ/ResultScreen';
-
+import LevelScreen from './QUIZ/Perkalian/LevelScreen';
+import LevelScreenPembagian from'./QUIZ/Pembagian/LevelScreen';
+import QuizScreen from './QUIZ/Perkalian/QuizScreen';
+import QuizScreenPembagian from './QUIZ/Pembagian/QuizScreen';
+import ResultScreen from './QUIZ/Perkalian/ResultScreen';
+import ResultScreenPembagian from './QUIZ/Pembagian/ResultScreen';
+import QuizMenu from './Quiz';
+import MenuPembagian from './TABEL/TabelPembagianScreen';
 const Stack = createNativeStackNavigator();
 
 
@@ -42,24 +45,40 @@ const MenuNavigation = () => {
                 component={Pencapaian}
             />
             <Stack.Screen
-                name="Level"
+                name="Quiz"
+                component={QuizMenu}
+            />
+            <Stack.Screen
+                name="LevelScreenPerkalian"
                 component={LevelScreen}
             />
             <Stack.Screen
-                name="Quiz"
+                name="LevelScreenPembagian"
+                component={LevelScreenPembagian}
+            />
+            <Stack.Screen
+                name="QuizScreenPerkalian"
                 component={QuizScreen}
             />
             <Stack.Screen
-                name="Result"
+                name="QuizScreenPembagian"
+                component={QuizScreenPembagian}
+            />
+            <Stack.Screen
+                name="ResultPerkalian"
                 component={ResultScreen}
             />
             <Stack.Screen
-                name="TabelPerkalian"
-                component={TabelPerkalian}
+                name="ResultPembagian"
+                component={ResultScreenPembagian}
             />
             <Stack.Screen
-                name="Perkalian"
+                name="TabelPerkalian"
                 component={Menuperkalian}
+            />
+            <Stack.Screen
+                name="TabelPembagian"
+                component={MenuPembagian}
             />
 
         </Stack.Navigator>

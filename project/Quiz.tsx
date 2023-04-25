@@ -10,13 +10,13 @@ import {
     View,
   } from 'react-native';
 
-  const Tabel = ({navigation}) => {
+  const QuizMenu = ({navigation}) => {
     return (
       <View style={styles.container}>
-          <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("TabelPerkalian")}>
+          <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("LevelScreenPerkalian")}>
             <Text style={styles.buttonText}>PERKALIAN</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("TabelPembagian")}>
+          <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("LevelScreenPembagian")}>
             <Text style={styles.buttonText}>PEMBAGIAN</Text>
           </TouchableOpacity>
       </View>
@@ -45,4 +45,4 @@ import {
     },
   });
 
-  export default Tabel;
+  export default QuizMenu;

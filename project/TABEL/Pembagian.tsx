@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, ScrollView } from 'react-native';
-export default function TabelPerkalian() {
+export default function TabelPembagian() {
   const numbers = [...Array(10).keys()].map(n => n + 1); // [1, 2, 3, ..., 10]
   const table = numbers.map(i => {
     const column = numbers.map(j => {
@@ -8,9 +8,9 @@ export default function TabelPerkalian() {
       return (
         <View style={styles.hitungan}>
           <Text key={j} style={styles.cell}>
-            <Text style={styles.left}>{i}</Text> x{' '}
-            <Text style={styles.right}>{j}</Text> ={' '}
-            <Text style={styles.result}>{product}</Text>
+            <Text style={styles.left}>{product}</Text> :{' '}
+            <Text style={styles.right}>{i}</Text> ={' '}
+            <Text style={styles.result}>{j}</Text>
           </Text>
         </View>
       );

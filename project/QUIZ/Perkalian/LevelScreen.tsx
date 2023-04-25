@@ -25,7 +25,7 @@ const LevelScreen = ({ navigation }) => {
   }, []);
 
   const handleLevelPress = (level) => {
-    navigation.navigate('Quiz', { level });
+    navigation.navigate('QuizScreenPerkalian', { level });
   };
 
   const getStarColor = (level, index, stars) => {
@@ -61,6 +61,7 @@ const LevelScreen = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
+      <Text style={styles.title}>Quiz Perkalian</Text>
       {chunk(levels, 5).map((row, rowIndex) => (
         <View key={rowIndex} style={styles.row}>
           {row.map((level) => (
@@ -106,10 +107,16 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'column',
-    justifyContent: 'center',
     backgroundColor:'#FFC6FF',
     alignItems: 'center',
     padding: 10,
+  },
+  title: {
+    fontSize: 20,
+    marginBottom: 10,
+    textAlign: 'center',
+    color: '#154198',
+    fontWeight: 'bold',
   },
   row: {
     flexDirection: 'row',

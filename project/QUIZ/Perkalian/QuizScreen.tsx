@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, TextInput, TouchableOpacity,FlatList  } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import SweetAlert from 'react-native-sweet-alert';
 const NumberButton = ({ number, onPress }) => {
   return (
     <TouchableOpacity style={styles.numberButton} onPress={() => onPress(number)}>
@@ -83,45 +84,65 @@ const QuizScreen = ({ navigation, route }) => {
     setAnswer(answer.slice(0, -1));
   };
 
-  const handleNextQuestionPress = async () => {
+  const handleNextQuestionPress = () => {
     const currentQuestion = questions[currentQuestionIndex];
     if (answer === currentQuestion.answer) {
       setScore(prevScore => prevScore + 1); // menggunakan setState untuk memperbarui score
       console.log('Score:', score + 1);
-      try {
-        await AsyncStorage.setItem('score', JSON.stringify(score + 1));
-      } catch (error) {
-        console.log(error);
+      if (currentQuestionIndex === questions.length - 1) {
+        SweetAlert.showAlertWithOptions({
+          title: 'Selamat',
+          subTitle: 'Anda Telah Meyelesaikan Quiz',
+          confirmButtonTitle: 'Lihat Hasil',
+          style: 'success',
+          cancellable: false,
+          onConfirm: function() {
+            console.log("Score: ", score + 1);
+            console.log("Total: ", questions.length);
+            navigation.navigate('ResultPerkalian', { score: score + 1, total: questions.length });
+          }
+        });
+        navigation.navigate('ResultPerkalian', { score: score + 1, total: questions.length }); // menggunakan score + 1 saat navigasi ke halaman Result
       }
-    }
-  
-    if (currentQuestionIndex === questions.length - 1 && answer === currentQuestion.answer) {
-      setScore(prevScore => prevScore + 1);
-      try {
-        await AsyncStorage.setItem('score', JSON.stringify(score + 1));
-      } catch (error) {
-        console.log(error);
+      else {
+        SweetAlert.showAlertWithOptions({
+          title: 'Jawaban Benar!',
+          subTitle: 'Pertanyaan selanjutnya',
+          confirmButtonTitle: 'Ok',
+          style: 'success',
+          cancellable: false,
+        });
+        setCurrentQuestionIndex(currentQuestionIndex + 1);
+        setAnswer('');
       }
-      navigation.navigate('Result', { score: score + 1, total: questions.length }); // menggunakan score + 1 saat navigasi ke halaman Result
     } else {
+      SweetAlert.showAlertWithOptions({
+        title: 'Jawaban Salah!',
+        subTitle: 'Coba Pelajari Lagi',
+        confirmButtonTitle: 'Ok',
+        style: 'error',
+        cancellable: false,
+      });
       setCurrentQuestionIndex(currentQuestionIndex + 1);
       setAnswer('');
     }
-
-    useEffect(() => {
-      const loadScore = async () => {
-        try {
-          const value = await AsyncStorage.getItem('score');
-          if (value !== null) {
-            setScore(parseInt(value));
-          }
-        } catch (error) {
-          console.log(error);
-        }
-      };
-      loadScore();
-    }, []);
   };
+  
+  
+  
+  // useEffect(() => {
+  //   const loadScore = async () => {
+  //     try {
+  //       const value = await AsyncStorage.getItem('score');
+  //       if (value !== null) {
+  //         setScore(parseInt(value));
+  //       }
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   };
+  //   loadScore();
+  // }, []);
   
   
 

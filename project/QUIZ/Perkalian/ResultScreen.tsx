@@ -2,38 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const ResultScreen = ({ navigation }) => {
-  const [score, setScore] = useState(0);
-  const [total, setTotal] = useState(0);
-  const [percentage, setPercentage] = useState(0);
+const ResultScreen = ({ route, navigation }) => {
+  const { score, total } = route.params;
+  const percentage = ((score / total) * 100).toFixed(2);
 
   const handlePlayAgain = () => {
-    navigation.navigate('Level');
+    navigation.navigate('LevelScreenPerkalian');
   };
-  const clearData = async () => {
-    try {
-      await AsyncStorage.clear();
-      console.log('Semua data berhasil dihapus');
-    } catch (error) {
-      console.log(error);
-    }
-  };
-  useEffect(() => {
-    const loadScore = async () => {
-      try {
-        const value = await AsyncStorage.getItem('score');
-        if (value !== null) {
-          const parsedValue = JSON.parse(value);
-          setScore(parsedValue);
-          setTotal(parsedValue); // karena dalam contoh program sebelumnya, skor yang disimpan adalah skor yang sudah ditambah 1
-          setPercentage(((parsedValue / parsedValue) * 100).toFixed(2));
-        }
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    loadScore();
-  }, []);
 
   return (
     <View style={styles.container}>
@@ -47,6 +22,7 @@ const ResultScreen = ({ navigation }) => {
     </View>
   );
 };
+
 
 
 const styles = StyleSheet.create({

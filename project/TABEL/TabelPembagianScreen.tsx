@@ -4,12 +4,12 @@ import {
     Text,
     View,
   } from 'react-native';
-import TabelPerkalian from './Perkalian';
-  const MenUPerkalian = () => {
+import TabelPembagian from './Pembagian';
+  const MenuPembagian = () => {
     return (
       <View style={styles.container}>
-        <Text style={styles.title}>Tabel Perkalian</Text>
-        <TabelPerkalian></TabelPerkalian>
+        <Text style={styles.title}>Tabel Pembagian</Text>
+        <TabelPembagian></TabelPembagian>
       </View>
     );
   };
@@ -29,4 +29,4 @@ import TabelPerkalian from './Perkalian';
     },
   });
 
-  export default MenUPerkalian;
+  export default MenuPembagian;
